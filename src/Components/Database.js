@@ -12,7 +12,7 @@ function Database() {
             method: 'POST',
             body: new URLSearchParams({ 'name': name, 'email': email, 'message': message })
         };
-        fetch('http://localhost:5500/setdata', option)
+        fetch('https://short-note-backend.onrender.com/setdata', option)
             .then(responce => responce.json())
             .then(result => {
                 console.log(result);
@@ -34,7 +34,7 @@ function Database() {
     useEffect(() => {
         let arr = [];
         function getdata() {
-            fetch("http://localhost:5500/getdata")
+            fetch("https://short-note-backend.onrender.com/getdata")
                 .then(result => result.json())
                 .then(responce => { console.log(responce); setarray(JSON.parse(responce)) })
         }
@@ -45,7 +45,7 @@ function Database() {
             method: 'DELETE',
             body: new URLSearchParams({ email: e.target.value })
         };
-        fetch('http://localhost:5500/deletedata', option)
+        fetch('https://short-note-backend.onrender.com/deletedata', option)
             .then(responce => responce.json())
             .then(result => {
                 console.log(result);
@@ -64,7 +64,7 @@ function Database() {
         method:'POST',
         body: new URLSearchParams({param:'data'})
         };
-        fetch('http://localhost:5500/deleteall',option)
+        fetch('https://short-note-backend.onrender.com/deleteall',option)
         .then(responce=>responce.json())
         .then(result=>
         {
@@ -87,7 +87,7 @@ function Database() {
             method: 'PUT',
             body: new URLSearchParams({ email: e.target.value, message: editedmessage })
         };
-        fetch('http://localhost:5500/edit', option)
+        fetch('https://short-note-backend.onrender.com/edit', option)
             .then(responce => responce.json())
             .then(result => {
                 console.log(result)
